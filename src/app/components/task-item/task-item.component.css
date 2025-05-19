@@ -1,0 +1,41 @@
+/* https://angular.dev/guide/routing/router-tutorial */
+.actions{
+  display: flex;
+  align-items: center;
+}
+.btnEdit{
+    box-shadow: inset 0 1px 0 0 #ffffff;
+    background: #ffffff linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+    color:rgb(26, 23, 23);
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #ffffff;
+    outline: 0;
+
+
+}
+.btnDel{
+    display: inline-block;
+    box-shadow: inset 0 1px 0 0rgb(200, 43, 43);
+    background:rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color:rgb(27, 20, 20);
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: -50px;
+
+    outline: 10px;
+}

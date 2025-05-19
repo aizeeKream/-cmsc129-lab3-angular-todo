@@ -1,0 +1,49 @@
+<!-- https://www.itsolutionstuff.com/post/angular-material-17-datepicker-example-tutorialexample.html -->
+ <!-- https://www.educba.com/angular-time-picker/ -->
+
+@if (showAddTask) {
+<form  class = 'add-form' (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="text">Task</label>
+    <input type="text" name = "text" id = "text" [(ngModel)]="text" placeholder="Add task">
+  </div>
+  <div class="form-control">
+    <label for="dueDate">Due Date</label>
+    <mat-form-field >
+      <input matInput [matDatepicker]="picker" name = "dueDate" id = "dueDate" [(ngModel)]="dueDate"placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+  </div>
+ <div class="form-control">
+            <label for="time">Time</label>
+            <mat-form-field>
+              <input
+                matInput
+                [ngxTimepicker]="timePicker"
+                [(ngModel)]="time"
+                name="time"
+                id="time"
+                [placeholder]="'HH:MM'"
+              />
+              <ngx-material-timepicker-toggle matSuffix [for]="timePicker"></ngx-material-timepicker-toggle>
+              <ngx-material-timepicker #timePicker [theme]="customTheme"></ngx-material-timepicker>
+            </mat-form-field>
+</div>
+  <div class="form-control">
+    <label for="priority" >Priority</label>
+    <select name = "priority" id = "priority" [(ngModel)]="priority" placeHolder="Select a priority level">
+      <option value="" disabled selected >Select a priority level</option>
+      <option value ="Low">Low</option>
+      <option value ="Mid">Mid</option>
+      <option value ="High">High</option>
+    </select>
+  </div>
+  <div>
+    <input type = "submit" value = "Save Task" class = "btn-add"/>
+  </div>
+
+</form>
+
+
+}

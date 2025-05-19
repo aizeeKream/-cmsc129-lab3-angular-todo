@@ -1,0 +1,19 @@
+<!-- https://v7.material.angular.dev/components/dialog/overview -->
+ <!-- https://zoaibkhan.com/blog/create-reusable-confirmation-dialogs-with-angular-material/ -->
+  <!-- https://www.youtube.com/watch?v=keeBWela4is&ab_channel=RaviShankarKumar -->
+
+<div class="header">
+  <h2 mat-dialog-title>{{data.title}}</h2>
+  <button class = 'close-button' mat-icon-button [mat-dialog-close]="false">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div mat-dialog-content>{{data.message}}</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button [mat-dialog-close]="false">{{data.cancelText}}</button>
+  <button mat-raised-button color="primary"[mat-dialog-close]="true" (click)="onDelete()">
+    {{data.confirmText}}
+  </button>
+</div>

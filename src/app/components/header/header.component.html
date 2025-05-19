@@ -1,0 +1,14 @@
+<!-- https://stackoverflow.com/questions/39927101/cant-bind-to-color-since-it-isnt-a-known-property-of-button -->
+
+<header>
+  <h1> {{title}} </h1>
+
+  <app-button color="{{showAddTask? '#8A1713' : '#305733'}}"
+              text="{{showAddTask?'Close' : 'Add Task'}}" (addClick)="toggleAddTask()"></app-button>
+
+</header>
+
+
+
+
+

@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button{
+  margin-right: 3%;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.close-button:hover,
+.close-button:focus {
+  background-color: transparent;
+  box-shadow: none;
+}

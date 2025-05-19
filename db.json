@@ -1,0 +1,67 @@
+{
+  "tasks": [
+    {
+      "id": "4",
+      "text": "Doctors Appointment",
+      "dueDate": "May 5, 2025",
+      "dateAdded": "Feb 3, 2025",
+      "time": "10:00 AM",
+      "priority": "Mid",
+      "isCompleted": true
+    },
+    {
+      "id": "ddbbab66-dbc7-40b0-9db8-f51744da6e4a",
+      "text": "adaa",
+      "dueDate": "May 15, 2025",
+      "dateAdded": "May 14, 2025",
+      "time": "12:00 AM",
+      "priority": "Mid",
+      "isCompleted": false
+    },
+    {
+      "id": "04d14f1f-f042-4bd0-bdd6-fe285dfa227d",
+      "text": "Doctors Appointment",
+      "dueDate": "May 1, 2025",
+      "dateAdded": "May 19, 2025",
+      "time": "12:00 AM",
+      "priority": "Low",
+      "isCompleted": false
+    },
+    {
+      "id": "b4a1e9c4-5d27-4cd8-b5a6-32fdeffae5de",
+      "text": "a",
+      "dueDate": "May 15, 2025",
+      "dateAdded": "May 19, 2025",
+      "time": "12:00 AM",
+      "priority": "Mid",
+      "isCompleted": false
+    },
+    {
+      "id": "54ae0a49-63bb-40dd-8b1b-67b625663f73",
+      "text": "Doctors Appointment",
+      "dueDate": "May 3, 2025",
+      "dateAdded": "May 19, 2025",
+      "time": "6:00 AM",
+      "priority": "Mid",
+      "isCompleted": false
+    },
+    {
+      "id": "3",
+      "text": "Food Shoppings",
+      "dueDate": "March 1, 2025",
+      "dateAdded": "Feb 2, 2025",
+      "time": "10:00 AM",
+      "priority": "High",
+      "isCompleted": false
+    },
+    {
+      "id": "cd0beaeb-0fca-4272-b412-c8b38059d414",
+      "text": "Doctors Appointments",
+      "dueDate": "May 8, 2025",
+      "dateAdded": "May 19, 2025",
+      "time": "5:00 AM",
+      "priority": "Mid",
+      "isCompleted": false
+    }
+  ]
+}

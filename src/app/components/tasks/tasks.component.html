@@ -1,0 +1,232 @@
+<!-- https://v17.material.angular.dev/components/datepicker/overview -->
+ <!-- https://agranom.github.io/ngx-material-timepicker/ -->
+
+<app-add-task (onAddTask)="addTask($event)"></app-add-task>
+
+
+
+<div class="sort-selection">
+  <div class="form-control">
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort" [(ngModel)]="sort" (change)="sortBy()" required>
+      <option [ngValue]="undefined" value="undefined" hidden disabled>Date Added</option>
+      <option value="dateAdded">Date Added</option>
+      <option value="dueDate">Due Date</option>
+      <option value="priority">Priority</option>
+    </select>
+  </div>
+</div>
+
+<div class="header"><h1>Upcoming tasks: </h1></div>
+
+<div class="task-item">
+  <table>
+    <thead>
+      <tr>
+        <th></th><th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+  @for (task of tasks; track task.id) {
+    @if (task.isCompleted == false){
+      <tr>
+        <td>
+      <div>
+          <label>
+            <input type="checkbox" [(ngModel)]="task.isCompleted" />
+          </label>
+
+      </div>
+      </td>
+      <div>
+
+        <td
+        [class.priority-low]="task.priority === 'Low'"
+        [class.priority-mid]="task.priority === 'Mid'"
+        [class.priority-high]="task.priority === 'High'">
+        {{ task.priority }}
+      </td>
+        <strong><h2>{{ task.text }}</h2></strong>
+      </div>
+      <div>
+        <h4>
+        <div> <strong> Added: {{ task.dateAdded }}</strong></div>
+        <div> <strong>Deadline: {{ task.dueDate }} {{ task.time }}</strong></div>
+          </h4>
+      </div>
+
+
+      <td></td>
+      <td></td>
+
+      <td></td>
+      <td class="action-cell">
+        <app-task-item
+          [task]="task"
+           (onEditTask)="editTask(task)"
+          (onDeleteTask)="deleteTask(task)"></app-task-item>
+
+
+      </td>
+
+      </tr>
+    }
+    @if (isEdit && taskToEdit?.id === task.id) {
+      <tr>
+        <td colspan="10">
+          <form class="edit-form" (ngSubmit)="onSubmitEdit()">
+            <div class="form-control">
+              <label for="text">Task</label>
+              <input type="text" name="text" id="text" [(ngModel)]="text" required />
+            </div>
+
+            <div class="form-control">
+              <label for="dueDate">Due Date</label>
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" name="dueDate" id="dueDate"
+                  [(ngModel)]="dueDate" [placeholder]="dueDate" />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div class="form-control">
+            <label for="time">Time</label>
+            <mat-form-field>
+              <input
+                matInput
+                [ngxTimepicker]="timePicker"
+                [(ngModel)]="time"
+                name="time"
+                id="time"
+                [placeholder]="time"
+              />
+              <ngx-material-timepicker-toggle matSuffix [for]="timePicker"></ngx-material-timepicker-toggle>
+              <ngx-material-timepicker #timePicker [theme]="customTheme"></ngx-material-timepicker>
+            </mat-form-field>
+</div>
+
+
+            <div class="form-control">
+              <label for="priority">Priority</label>
+              <select name="priority" id="priority" [(ngModel)]="priority" required>
+                <option [ngValue]="undefined" hidden disabled>Select a priority</option>
+                <option value="Low">Low</option>
+                <option value="Mid">Mid</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          <div class="button-group">
+            <button  class="btnCancel" isEdit = false>Cancel</button>
+            <input type="submit" value="Update" class="btn btn-block" />
+          </div>
+          </form>
+        </td>
+      </tr>
+    }
+  }
+
+  </table>
+</div>
+
+<p></p>
+<div class="header"><h1>Completed:</h1></div>
+
+<div class="task-item">
+  <table>
+    <thead>
+      <tr>
+        <th></th><th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+  @for (task of tasks; track task.id) {
+    @if (task.isCompleted == true){
+      <tr [class.completed]="task.isCompleted">
+        <td>
+      <div>
+          <label>
+            <input type="checkbox" [(ngModel)]="task.isCompleted" />
+          </label>
+
+      </div>
+      </td>
+      <div>
+        <td></td>
+        <strong>{{ task.text }}</strong>
+      </div>
+      <div>
+        <div>Date Added: {{ task.dateAdded }}</div>
+        <div>Deadline: {{ task.dueDate }} {{ task.time }}</div>
+
+      </div>
+
+
+      <td></td>
+      <td></td>
+
+      <td></td>
+      <td class="action-cell">
+        <app-task-item
+          [task]="task"
+           (onEditTask)="editTask(task)"
+          (onDeleteTask)="deleteTask(task)"></app-task-item>
+
+
+      </td>
+      </tr>
+    }
+    @if (isEdit && taskToEdit?.id === task.id) {
+      <tr>
+        <td colspan="10">
+          <form class="edit-form" (ngSubmit)="onSubmitEdit()">
+            <div class="form-control">
+              <label for="text">Task</label>
+              <input type="text" name="text" id="text" [(ngModel)]="text" required />
+            </div>
+
+            <div class="form-control">
+              <label for="dueDate">Due Date</label>
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" name="dueDate" id="dueDate"
+                  [(ngModel)]="dueDate" [placeholder]="dueDate" />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div class="form-control">
+            <label for="time">Time</label>
+            <mat-form-field>
+              <input
+                matInput
+                [ngxTimepicker]="timePicker"
+                [(ngModel)]="time"
+                name="time"
+                id="time"
+                [placeholder]="time"
+              />
+              <ngx-material-timepicker-toggle matSuffix [for]="timePicker"></ngx-material-timepicker-toggle>
+              <ngx-material-timepicker #timePicker [theme]="customTheme"></ngx-material-timepicker>
+            </mat-form-field>
+</div>
+            <div class="form-control">
+              <label for="priority">Priority</label>
+              <select name="priority" id="priority" [(ngModel)]="priority" required>
+                <option [ngValue]="undefined" hidden disabled>Select a priority</option>
+                <option value="Low">Low</option>
+                <option value="Mid">Mid</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          <div class="button-group">
+            <button  class="btnCancel" isEdit = false>Cancel</button>
+            <input type="submit" value="Update" class="btn btn-block" />
+          </div>
+          </form>
+        </td>
+      </tr>
+    }
+  }
